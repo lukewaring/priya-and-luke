@@ -2,18 +2,8 @@ import * as React from "react";
 import { StaticImage } from "gatsby-plugin-image";
 
 import MainInfoSvg from "../svgs/main-info-svg";
-import SaveTheDateSvg from "../svgs/save-the-date-svg";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-
-const pageStyles = {
-  background: "#FBECC6",
-};
 
 function SaveTheDateImageMap() {
   return (
@@ -28,7 +18,7 @@ function SaveTheDateImageMap() {
       <map name="save-the-date-map">
         <area
           shape="circle"
-          coords="590, 450, 65"
+          coords="685, 525, 80"
           onClick={handleSunFlowerClick}
           style={{ cursor: "help" }}
         />
@@ -44,35 +34,57 @@ function handleSunFlowerClick() {
 
 function openModal() {}
 
+const pageStyles = {
+  background: "#FBECC6",
+  overflow: "hidden",
+} as React.CSSProperties;
+
+const containerStyles = {
+  display: "grid",
+  height: "100vh",
+  marginRight: "48px",
+  justifyContent: "strech",
+  alignItems: "strech",
+  gridAutoColumns: "1fr",
+  gridColumnGap: "16px",
+  gridRowGap: "16px",
+  gridTemplateColumns: "2fr 1fr",
+  gridTemplateRows: "1fr 1fr",
+  backgroundColor: "transparent",
+} as React.CSSProperties;
+
+const saveTheDateStyles = {
+  position: "relative",
+  left: "0%",
+  top: "48px",
+  right: "auto",
+  bottom: "0%",
+  display: "flex",
+  overflow: "visible",
+  width: "90%",
+  height: "100vh",
+  maxHeight: "100%",
+  maxWidth: "100%",
+  minWidth: "auto",
+  justifyContent: "flex-start",
+  alignItems: "flex-end",
+  objectFit: "scale-down",
+} as React.CSSProperties;
+
+const mainInfoStyles = {
+  display: "flex",
+  height: "100vh",
+  alignItems: "center",
+} as React.CSSProperties;
+
 const IndexPage = () => {
   return (
     <main style={pageStyles}>
       <title>Priya and Luke</title>
-      <Container bsPrefix="ml-0 vh-100">
-        <Row className="h-100">
-          <Col className="align-self-end">{SaveTheDateSvg()}</Col>
-
-          <Col className="align-self-center">
-            {/* TODO: pin Navbar to top while keeping MainInfoSvg vertically centered */}
-            {/* <Row>
-              <Navbar expand="lg">
-                <Container>
-                  <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                  <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav>
-                      <Nav.Link href="/">Home</Nav.Link>
-                      <Nav.Link href="/">Wedding Info</Nav.Link>
-                      <Nav.Link href="/">Registry</Nav.Link>
-                      <Nav.Link href="/">RSVP</Nav.Link>
-                    </Nav>
-                  </Navbar.Collapse>
-                </Container>
-              </Navbar>
-            </Row> */}
-            <Row>{MainInfoSvg()}</Row>
-          </Col>
-        </Row>
-      </Container>
+      <div style={containerStyles}>
+        <div style={saveTheDateStyles}>{SaveTheDateImageMap()}</div>
+        <div style={mainInfoStyles}>{MainInfoSvg()}</div>
+      </div>
     </main>
   );
 };

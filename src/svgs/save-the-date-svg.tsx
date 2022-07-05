@@ -1,14 +1,25 @@
 import * as React from "react";
 
+const svgStyles = {
+  position: "relative",
+  display: "block",
+  width: "auto",
+  height: "auto",
+  maxWidth: "100%",
+  float: "none",
+  objectFit: "fill",
+} as React.CSSProperties;
+
 export default function SaveTheDateSvg() {
   return (
     <svg
-      width="795"
-      height="788"
-      viewBox="0 0 795 788"
+      width="100%"
+      height="100%"
+      viewBox="0 0 795 815" // original was 795 x 788
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
+      style={svgStyles}
     >
       <rect y="-64" width="642" height="852" fill="url(#pattern0)" />
       <rect x="555" y="368" width="240" height="473" fill="url(#pattern1)" />
